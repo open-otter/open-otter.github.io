@@ -1,0 +1,86 @@
+---
+title: Software Build
+description: High-level setup for the OpenOtter app and STM32 firmware development workflows.
+---
+
+# Software Build
+
+OpenOtter currently combines at least two software tracks: the iPhone app in `openotter-ios` and the STM32 motor-control firmware in `firmware/stm32-mcp`. This page is the site-level guide for getting both environments ready without duplicating the full component READMEs.
+
+## Build scope
+
+For the current project shape, expect to prepare:
+
+- an Apple development environment for the iPhone app
+- the STM32Cube command-line toolchain for firmware builds and flashing
+- a workspace that can access both the website repo and the main OpenOtter source repo
+
+TODO: add a section for any future Android, Raspberry Pi, or Jetson build workflows once they become first-class paths.
+
+## iPhone app setup
+
+The main source repo describes the iOS app as the brain that handles LiDAR capture, debug rendering, and the agent runtime. At a high level, the flow is:
+
+1. install Xcode and command line tools
+2. install `xcodegen`
+3. generate the Xcode project from `project.yml`
+4. configure Apple signing in Xcode
+5. deploy to a development iPhone with Developer Mode enabled
+
+Typical helper commands in the app repo include:
+
+- `./build.sh generate`
+- `./build.sh build`
+- `./build.sh install`
+- `./build.sh launch`
+- `./build.sh deploy`
+- `./build.sh test`
+
+TODO: add the exact supported Xcode version, iPhone models, and any signing gotchas the team wants documented here.
+
+## STM32 firmware setup
+
+The MCP firmware runs on the STM32L475 Discovery Kit and handles BLE command intake, PWM output, and safety watchdog behavior. The source README expects STM32CubeCLT to be installed and available before building.
+
+High-level flow:
+
+1. install STM32CubeCLT
+2. confirm the local toolchain path is correct
+3. connect the board over ST-Link
+4. build the firmware
+5. flash a known-good image before pairing with the app
+
+Typical commands in the firmware repo include:
+
+- `./build.sh`
+- `./build.sh -r build`
+- `./build.sh flash`
+- `./build.sh clean`
+
+TODO: add the exact tested STM32CubeCLT version, host OS assumptions, and any board driver notes for new contributors.
+
+## Working across repos
+
+The site repo is not the same repository as the main OpenOtter source tree. In practice, maintainers will often need both open at once:
+
+- this repo for the docs and project website
+- the main OpenOtter source repo for app and firmware work
+
+TODO: document the preferred local directory layout, worktree conventions, and branch naming if the team wants a standard workflow.
+
+## Verification checklist
+
+Before calling the environment ready:
+
+- confirm the iPhone project generates and builds
+- confirm app signing is valid on the target device
+- confirm the STM32 firmware builds locally
+- confirm flashing succeeds on the intended board
+
+### Safety notes
+
+- Do not flash or run unreviewed firmware on a vehicle that can move unexpectedly.
+- Keep propulsion power isolated during first firmware and app handshake tests.
+- Treat reconnect behavior and neutral-throttle defaults as mandatory checks, not optional polish.
+
+TODO: add a combined smoke test covering app deployment, BLE discovery, and neutral-control validation.
