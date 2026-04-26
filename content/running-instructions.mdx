@@ -1,0 +1,87 @@
+---
+title: Running Instructions
+description: High-level operating sequence for bringing an OpenOtter vehicle online and running it safely.
+---
+
+# Running Instructions
+
+This page is the starter runbook for powered testing. It is meant to guide operators through a cautious first bring-up, not to replace subsystem-specific procedures or a site-specific safety review.
+
+## Operating assumptions
+
+These instructions assume:
+
+- the chassis is mechanically complete
+- the app and firmware have already been built and loaded
+- the operator has physical access to the vehicle and a way to remove power quickly
+- testing begins at low speed in a controlled area
+
+TODO: add the reference operating environment, floor surface, speed caps, and any required spotter rules.
+
+## Pre-run safety check
+
+Before each session:
+
+- inspect the vehicle for loose wiring, damaged tires, or blocked steering
+- verify the battery is secured and charged appropriately
+- keep the drive wheels clear or the chassis elevated for the first live-control checks
+- confirm there is a clear emergency stop path, including unplugging propulsion power if needed
+
+Do not begin autonomous or assisted driving tests around traffic, pets, or bystanders who are not part of the session.
+
+TODO: replace this with a signed preflight checklist if the project starts running more formal demos or classes.
+
+## Bring-up order
+
+Use a repeatable startup sequence so issues are easier to isolate:
+
+1. power and inspect the vehicle hardware
+2. boot the brain device and open the control app
+3. power the MCP and confirm it is advertising as `OPENOTTER-MCP`
+4. connect from the app and verify the control link is healthy
+5. validate neutral steering and throttle behavior before any motion test
+
+TODO: add screenshots or UI labels for the current app flow once the control surfaces are stable enough to document.
+
+## Control and telemetry checks
+
+Before moving under load, confirm:
+
+- BLE connection is stable
+- steering commands move in the expected direction
+- throttle returns to neutral when commands stop
+- any status or safety indicators show a healthy system state
+
+If the vehicle does not return to a neutral state reliably, stop and debug before further testing.
+
+TODO: document the expected telemetry fields, firmware modes, and warning states operators should recognize.
+
+## First motion tests
+
+Start with the smallest practical test:
+
+- low-speed forward and steering response
+- controlled stop
+- repeatability across reconnects or short pauses
+
+Only expand to larger runs after the basic loop is predictable. Reverse motion deserves extra caution if rear-distance safety logic is part of the current build.
+
+### Safety notes
+
+- Never begin with full-throttle tests.
+- Keep hands, tools, and loose clothing away from rotating parts.
+- Re-check neutral behavior after firmware updates, app updates, or wiring changes.
+
+TODO: add the current acceptance criteria for a successful first-drive session.
+
+## Shutdown and post-run review
+
+When the session is over:
+
+1. stop the vehicle and return controls to neutral
+2. disconnect the control session
+3. remove propulsion power
+4. inspect for heat, loose hardware, or wiring damage
+5. record any failures before the next run
+
+TODO: add a post-run log template covering firmware version, app build, battery used, and observed issues.

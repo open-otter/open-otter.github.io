@@ -1,0 +1,83 @@
+---
+title: Hardware Build
+description: High-level guidance for assembling an OpenOtter vehicle safely before software bring-up.
+---
+
+# Hardware Build
+
+This guide covers the physical side of an OpenOtter build: choosing a chassis, mounting the control hardware, routing power, and preparing sensors for first tests. It is intentionally high-level so the team can adapt it as the reference platform changes.
+
+## Before you start
+
+- Pick a test area with enough room for bench checks and low-speed driving.
+- Keep the drive wheels off the ground for the first powered tests where possible.
+- Disconnect propulsion power before changing wiring, servo horns, or ESC connections.
+- Treat the vehicle like a moving machine, not a toy, once the ESC and steering are live.
+
+TODO: add the current reference parts list with exact chassis, battery, servo, ESC, and mounting hardware.
+
+## Recommended system layout
+
+At a high level, OpenOtter is split into four physical groups:
+
+1. an RC chassis with steering servo and ESC
+2. a compute device that runs the driving stack, currently centered on the iPhone app
+3. a motor control processor, currently the STM32L475 Discovery Kit IoT Node
+4. sensors and supporting mounts, such as the phone camera/LiDAR stack and rear safety distance sensing
+
+TODO: document the preferred placement for each module on the reference chassis, including cable routing and center-of-gravity tradeoffs.
+
+## Chassis and drivetrain preparation
+
+Start with a chassis that already supports a standard steering servo and brushless ESC. For first bring-up, favor predictable indoor handling over speed.
+
+Checklist:
+
+- verify steering linkages move smoothly by hand
+- confirm the ESC and motor are compatible with the chosen battery pack
+- leave room for the STM32 board, phone mount, and any sensor brackets
+- secure loose body panels, wires, and accessories before power-up
+
+TODO: add any chassis-specific trimming, adapter plates, or printable mounts required by the preferred build.
+
+## Power and signal wiring
+
+The core wiring path is straightforward:
+
+- steering servo connected to the MCP PWM steering output
+- ESC throttle signal connected to the MCP PWM throttle output
+- shared ground maintained across controller and vehicle electronics
+- compute device connected wirelessly over BLE to the MCP
+
+Keep signal wiring short, strain-relieved, and separated from moving drivetrain parts.
+
+### Safety notes
+
+- Verify polarity before applying power.
+- Never assume servo or ESC pin order matches another vendor's labeling.
+- Power the system in a controlled sequence and be ready to cut throttle power immediately.
+
+TODO: add a wiring table with exact pin mapping, connector types, and photos of a known-good harness.
+
+## Controller and sensor mounting
+
+Mount the STM32 board where it is protected from impacts but still accessible for flashing and debug access. Mount the phone or other brain device rigidly enough that vibration and angle drift do not compromise perception.
+
+Sensor placement goals:
+
+- stable forward-facing camera/LiDAR view
+- unobstructed rear safety sensor coverage if reverse protection is enabled
+- no cable path that can foul steering, suspension, or wheels
+
+TODO: add measurements, bracket references, and acceptable mounting tolerances for the current vehicle revision.
+
+## Bench validation
+
+Before installing software or driving under power, perform a hardware-only check:
+
+- inspect every fastener and connector
+- verify the steering can move full range without binding
+- confirm the drivetrain spins freely when unpowered
+- check that the main battery can be disconnected quickly
+
+TODO: add a sign-off checklist for builders to record mechanical, electrical, and safety validation before first boot.

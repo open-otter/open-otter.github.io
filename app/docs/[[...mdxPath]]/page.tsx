@@ -15,7 +15,7 @@ type DocPageProps = {
 };
 
 const generateMdxParams = generateStaticParamsFor("mdxPath");
-const docsContentPath = join(process.cwd(), "content", "docs");
+const docsContentPath = join(process.cwd(), "content");
 const hasDocsContent = () => existsSync(docsContentPath);
 const docsIndexMetadata: Metadata = {
   title: "Docs",
@@ -63,12 +63,22 @@ const placeholderDocs = {
 
 type PlaceholderSlug = keyof typeof placeholderDocs;
 
+function normalizeDocPath(mdxPath?: string[]) {
+  if (!mdxPath?.length) {
+    return [];
+  }
+
+  return mdxPath[0] === "docs" ? mdxPath.slice(1) : mdxPath;
+}
+
 function getPlaceholderDoc(mdxPath?: string[]) {
-  if (mdxPath?.length !== 1) {
+  const normalizedPath = normalizeDocPath(mdxPath);
+
+  if (normalizedPath.length !== 1) {
     return null;
   }
 
-  const slug = mdxPath[0] as PlaceholderSlug;
+  const slug = normalizedPath[0] as PlaceholderSlug;
   return placeholderDocs[slug] ? { slug, ...placeholderDocs[slug] } : null;
 }
 
@@ -81,12 +91,18 @@ export async function generateStaticParams() {
   }
 
   const generated = await generateMdxParams();
-  return [{ mdxPath: [] as string[] }, ...generated];
+  const normalized = generated.map((entry) => ({
+    ...entry,
+    mdxPath: normalizeDocPath(entry.mdxPath as string[]),
+  }));
+
+  return [{ mdxPath: [] as string[] }, ...normalized];
 }
 
 export async function generateMetadata({ params }: DocPageProps): Promise<Metadata> {
   const resolvedParams = await params;
-  const placeholderDoc = getPlaceholderDoc(resolvedParams.mdxPath);
+  const normalizedPath = normalizeDocPath(resolvedParams.mdxPath);
+  const placeholderDoc = getPlaceholderDoc(normalizedPath);
 
   if (!hasDocsContent()) {
     if (placeholderDoc) {
@@ -98,7 +114,7 @@ export async function generateMetadata({ params }: DocPageProps): Promise<Metada
     return docsIndexMetadata;
   }
 
-  const { metadata } = await importPage(resolvedParams.mdxPath);
+  const { metadata } = await importPage(normalizedPath);
   return metadata;
 }
 
@@ -108,7 +124,8 @@ const Wrapper =
 
 export default async function DocsPage(props: DocPageProps) {
   const params = await props.params;
-  const placeholderDoc = getPlaceholderDoc(params.mdxPath);
+  const normalizedPath = normalizeDocPath(params.mdxPath);
+  const placeholderDoc = getPlaceholderDoc(normalizedPath);
 
   if (!hasDocsContent()) {
     if (placeholderDoc) {
@@ -136,7 +153,7 @@ export default async function DocsPage(props: DocPageProps) {
       );
     }
 
-    if (params.mdxPath?.length) {
+    if (normalizedPath.length) {
       notFound();
     }
 
@@ -169,11 +186,11 @@ export default async function DocsPage(props: DocPageProps) {
     );
   }
 
-  const { default: MDXContent, metadata, sourceCode, toc } = await importPage(params.mdxPath);
+  const { default: MDXContent, metadata, sourceCode, toc } = await importPage(normalizedPath);
 
   return (
     <Wrapper metadata={metadata} sourceCode={sourceCode} toc={toc}>
-      <MDXContent {...props} params={params} />
+      <MDXContent {...props} params={{ mdxPath: normalizedPath }} />
     </Wrapper>
   );
 }

@@ -8,7 +8,7 @@ import { getPageMap } from "nextra/page-map";
 
 import themeConfig from "@/theme.config";
 
-const docsContentPath = join(process.cwd(), "content", "docs");
+const docsContentPath = join(process.cwd(), "content");
 const hasDocsContent = () => existsSync(docsContentPath);
 
 export default async function DocsLayout({
