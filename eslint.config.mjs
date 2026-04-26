@@ -9,6 +9,7 @@ export default defineConfig([
     }
   },
   globalIgnores([
+    ".worktrees/**",
     ".next/**",
     "out/**",
     "build/**",
