@@ -104,7 +104,7 @@ export default function HomePage() {
                 alt="OpenOtter perception and autonomy preview"
                 className="absolute inset-0 h-full w-full object-cover"
                 fill
-                src="/media/hero/openotter-hero-poster.png"
+                src="/media/hero/openotter-hero-poster.jpg"
               />
               <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(10,10,10,0.86),rgba(10,10,10,0.28))]" />
               <div className="relative flex h-full flex-col justify-between p-5">

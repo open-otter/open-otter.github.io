@@ -10,7 +10,7 @@ const sourceRepository = "https://github.com/JuneJulyAugust/openotter";
 type DocsThemeConfig = Omit<ComponentProps<typeof Layout>, "children" | "pageMap">;
 
 const themeConfig: DocsThemeConfig = {
-  darkMode: true,
+  darkMode: false,
   docsRepositoryBase,
   editLink: "Edit this page",
   feedback: {
@@ -66,17 +66,13 @@ const themeConfig: DocsThemeConfig = {
     attribute: "class",
     defaultTheme: "dark",
     disableTransitionOnChange: true,
+    forcedTheme: "dark",
   },
   sidebar: {
     autoCollapse: true,
     defaultMenuCollapseLevel: 1,
     defaultOpen: true,
     toggleButton: true,
-  },
-  themeSwitch: {
-    dark: "Dark",
-    light: "Light",
-    system: "System",
   },
   toc: {
     backToTop: "Back to top",

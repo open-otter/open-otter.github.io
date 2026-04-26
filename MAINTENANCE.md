@@ -40,7 +40,7 @@ export default {
 
 ## Images and video in MDX
 
-- Store site assets in `public/` and reference them with root-relative URLs such as `/media/hero/openotter-hero-poster.png`.
+- Store site assets in `public/` and reference them with root-relative URLs such as `/media/hero/openotter-hero-poster.jpg`.
 - Prefer descriptive subfolders under `public/media/` so related assets stay grouped.
 - Keep exported images web-friendly. Large originals should be optimized before they land in the repo.
 - Because the site uses static export with `images.unoptimized`, use ordinary Markdown image syntax or HTML/MDX elements that point at files already in `public/`.
