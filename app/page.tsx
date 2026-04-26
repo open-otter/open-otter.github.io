@@ -41,7 +41,7 @@ const docsLinks = [
 export default function HomePage() {
   return (
     <main className="site-shell">
-      <section className="border-b border-white/10">
+      <section className="border-b border-black/8">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-5">
           <Link aria-label="OpenOtter home" href="/">
             <Image
@@ -52,12 +52,12 @@ export default function HomePage() {
               width="182"
             />
           </Link>
-          <nav className="flex items-center gap-4 text-sm text-neutral-400">
-            <Link className="transition hover:text-neutral-100" href="/docs">
+          <nav className="flex items-center gap-4 text-sm text-neutral-500">
+            <Link className="transition hover:text-neutral-900" href="/docs">
               Docs
             </Link>
             <a
-              className="transition hover:text-neutral-100"
+              className="transition hover:text-neutral-900"
               href="https://github.com/JuneJulyAugust/openotter"
               rel="noreferrer"
               target="_blank"
@@ -68,15 +68,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-b border-white/10">
+      <section className="border-b border-black/8">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(440px,0.95fr)] lg:py-24">
           <div className="flex flex-col justify-center gap-8">
             <div className="space-y-5">
               <p className="eyebrow">Open-source autonomy for physical RC systems</p>
-              <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
                 OpenOtter: The Open-Source Autonomous RC Platform
               </h1>
-              <p className="max-w-2xl text-base leading-7 text-neutral-300 sm:text-lg">
+              <p className="max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg">
                 OpenOtter connects phone-class perception, embedded control, and real RC hardware
                 into a field-testable autonomy stack. The site is the front door for the platform
                 and the docs path into the build.
@@ -106,12 +106,14 @@ export default function HomePage() {
                 fill
                 src="/media/hero/openotter-hero-poster.jpg"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(10,10,10,0.86),rgba(10,10,10,0.28))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(255,255,255,0.92),rgba(255,255,255,0.24))]" />
               <div className="relative flex h-full flex-col justify-between p-5">
                 <span className="frame-chip">Demo capture</span>
                 <div className="space-y-2">
-                  <p className="text-sm font-medium text-white">LiDAR + RGB perception overlay</p>
-                  <p className="max-w-sm text-sm leading-6 text-neutral-300">
+                  <p className="text-sm font-medium text-neutral-950">
+                    LiDAR + RGB perception overlay
+                  </p>
+                  <p className="max-w-sm text-sm leading-6 text-neutral-700">
                     Placeholder media surface using the current poster asset until a production
                     demo reel is added.
                   </p>
@@ -122,33 +124,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-b border-white/10">
+      <section className="border-b border-black/8">
         <div className="mx-auto max-w-6xl px-6 py-16">
           <div className="section-heading">
             <p className="eyebrow">Platform focus</p>
-            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-neutral-950 sm:text-3xl">
               The stack is built for iteration on real hardware.
             </h2>
           </div>
           <div className="surface-grid mt-10">
             {featureCards.map((feature) => (
               <article className="surface-card" key={feature.title}>
-                <h3 className="text-lg font-semibold text-white">{feature.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-neutral-300">{feature.body}</p>
+                <h3 className="text-lg font-semibold text-neutral-950">{feature.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-neutral-600">{feature.body}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-b border-white/10">
+      <section className="border-b border-black/8">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-center">
           <div className="space-y-5">
             <p className="eyebrow">Architecture</p>
-            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-neutral-950 sm:text-3xl">
               From operator tooling to embedded actuation.
             </h2>
-            <p className="max-w-xl text-sm leading-7 text-neutral-300 sm:text-base">
+            <p className="max-w-xl text-sm leading-7 text-neutral-600 sm:text-base">
               OpenOtter spans the mobile app, autonomy runtime, and low-level hardware bridge. The
               result is a single platform for bringing sensors, control surfaces, and field
               operation into one loop.
@@ -157,7 +159,7 @@ export default function HomePage() {
           <div className="architecture-frame">
             <Image
               alt="OpenOtter system architecture"
-              className="w-full rounded-lg border border-white/10"
+              className="w-full rounded-lg border border-black/8"
               height={720}
               src="/media/architecture/openotter-architecture.png"
               width={1280}
@@ -170,10 +172,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-6 py-16">
           <div className="section-heading">
             <p className="eyebrow">Start here</p>
-            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-neutral-950 sm:text-3xl">
               Enter through the build guides.
             </h2>
-            <p className="max-w-2xl text-sm leading-7 text-neutral-300 sm:text-base">
+            <p className="max-w-2xl text-sm leading-7 text-neutral-600 sm:text-base">
               The docs are organized around the real hardware and software bring-up path rather
               than a marketing funnel.
             </p>

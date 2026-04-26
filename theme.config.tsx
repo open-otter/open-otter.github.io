@@ -18,11 +18,11 @@ const themeConfig: DocsThemeConfig = {
     labels: "documentation,feedback",
   },
   footer: (
-    <Footer className="border-t border-neutral-900 bg-black/60 px-6 py-8 text-sm text-neutral-400">
+    <Footer className="border-t border-neutral-200 bg-white px-6 py-8 text-sm text-neutral-500">
       <div className="mx-auto flex max-w-6xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <span>OpenOtter documentation and project site.</span>
         <a
-          className="transition hover:text-neutral-100"
+          className="transition hover:text-neutral-900"
           href={sourceRepository}
           rel="noreferrer"
           target="_blank"
@@ -39,16 +39,9 @@ const themeConfig: DocsThemeConfig = {
         <span className="flex items-center gap-3 font-semibold tracking-tight">
           <Image
             alt="OpenOtter"
-            className="hidden h-7 w-auto dark:block"
+            className="h-7 w-auto"
             height="28"
             src="/brand/openotter-logo-light.png"
-            width="160"
-          />
-          <Image
-            alt="OpenOtter"
-            className="h-7 w-auto dark:hidden"
-            height="28"
-            src="/brand/openotter-logo-dark.png"
             width="160"
           />
         </span>
@@ -56,7 +49,7 @@ const themeConfig: DocsThemeConfig = {
       logoLink="/"
       projectLink={sourceRepository}
     >
-      <Link className="text-sm text-neutral-500 transition hover:text-neutral-100" href="/docs">
+      <Link className="text-sm text-neutral-500 transition hover:text-neutral-900" href="/docs">
         Docs
       </Link>
     </Navbar>
@@ -64,9 +57,9 @@ const themeConfig: DocsThemeConfig = {
   navigation: true,
   nextThemes: {
     attribute: "class",
-    defaultTheme: "dark",
+    defaultTheme: "light",
     disableTransitionOnChange: true,
-    forcedTheme: "dark",
+    forcedTheme: "light",
   },
   sidebar: {
     autoCollapse: true,

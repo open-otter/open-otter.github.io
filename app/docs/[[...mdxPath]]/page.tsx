@@ -131,19 +131,19 @@ export default async function DocsPage(props: DocPageProps) {
     if (placeholderDoc) {
       return (
         <div className="space-y-8">
-          <div className="space-y-3">
-            <p className="eyebrow">OpenOtter documentation</p>
-            <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              {placeholderDoc.title}
-            </h1>
-            <p className="max-w-2xl text-base leading-7 text-neutral-300">
-              {placeholderDoc.description}
-            </p>
-          </div>
+        <div className="space-y-3">
+          <p className="eyebrow">OpenOtter documentation</p>
+          <h1 className="text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+            {placeholderDoc.title}
+          </h1>
+          <p className="max-w-2xl text-base leading-7 text-neutral-600">
+            {placeholderDoc.description}
+          </p>
+        </div>
 
           <div className="surface-card">
-            <h2 className="text-lg font-semibold text-white">Planned sections</h2>
-            <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-300">
+            <h2 className="text-lg font-semibold text-neutral-950">Planned sections</h2>
+            <ul className="mt-4 space-y-3 text-sm leading-6 text-neutral-600">
               {placeholderDoc.sections.map((section) => (
                 <li key={section}>{section}</li>
               ))}
@@ -161,8 +161,8 @@ export default async function DocsPage(props: DocPageProps) {
       <div className="space-y-8">
         <div className="space-y-3">
           <p className="eyebrow">OpenOtter documentation</p>
-          <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Docs</h1>
-          <p className="max-w-2xl text-base leading-7 text-neutral-300">
+          <h1 className="text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">Docs</h1>
+          <p className="max-w-2xl text-base leading-7 text-neutral-600">
             The documentation tree is being staged in the next task. This route is live now so the
             exported docs shell, navigation, and GitHub Pages wiring can be verified.
           </p>

@@ -30,9 +30,9 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html className="dark" dir="ltr" lang="en" suppressHydrationWarning>
+    <html dir="ltr" lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-neutral-950 font-sans text-neutral-100 antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-neutral-50 font-sans text-neutral-950 antialiased`}
       >
         {children}
       </body>
