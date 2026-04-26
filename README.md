@@ -25,6 +25,8 @@ npm run build
 npm run start
 ```
 
+`npm run start` serves the exported `out/` directory for a production-style local preview.
+
 Notes:
 
 - `Nextra 4` requires the `app` router.
