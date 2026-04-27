@@ -68,7 +68,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-24 md:py-32">
+      <section className="max-w-7xl mx-auto px-6 py-12 md:py-20">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-6xl font-semibold tracking-tight leading-[1.1] mb-6 text-slate-900">
             Open-source autonomy for physical RC systems.
@@ -94,8 +94,8 @@ export default function HomePage() {
       </section>
 
       <section className="border-y border-slate-200/60 bg-white overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 py-24">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="mx-auto max-w-7xl px-6 py-12 md:py-20">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="eyebrow mb-4">Architecture</p>
               <h2 className="text-3xl font-semibold tracking-tight text-slate-900 mb-6">
@@ -138,8 +138,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="section-heading mb-12">
+      <section className="max-w-7xl mx-auto px-6 py-12 md:py-20">
+        <div className="section-heading mb-10">
           <p className="eyebrow mb-2">Start here</p>
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
             Enter through the build guides.
