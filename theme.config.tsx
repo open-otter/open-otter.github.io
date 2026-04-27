@@ -39,7 +39,7 @@ const themeConfig: DocsThemeConfig = {
         <span className="flex items-center gap-3 font-semibold tracking-tight">
           <Image
             alt="OpenOtter"
-            className="h-7 w-auto"
+            className="h-7 w-auto mix-blend-multiply"
             height="28"
             src="/brand/openotter-logo-light.png"
             width="160"
