@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Cpu, Play, Smartphone, Terminal, Wrench } from "lucide-react";
+import { Logo } from "@/components/Logo";
 
 const featureCards = [
   {
@@ -42,20 +43,8 @@ export default function HomePage() {
       <section className="border-b border-slate-200/60 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 h-16">
           <div className="flex items-center gap-8">
-            <Link aria-label="OpenOtter home" href="/" className="flex items-center gap-3">
-              <div className="relative h-8 w-8 overflow-hidden rounded-md border border-slate-200/60 shadow-sm">
-                <Image
-                  alt="OpenOtter Icon"
-                  className="object-cover"
-                  fill
-                  src="/brand/openotter-icon.jpg"
-                  sizes="32px"
-                  priority
-                />
-              </div>
-              <span className="font-semibold tracking-tight text-xl text-slate-900 hidden sm:block">
-                OpenOtter
-              </span>
+            <Link aria-label="OpenOtter home" href="/" className="flex items-center">
+              <Logo />
             </Link>
             <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-500">
               <Link className="text-slate-800" href="/docs">
@@ -72,7 +61,7 @@ export default function HomePage() {
             </nav>
           </div>
           <div className="flex items-center gap-4">
-             <Link className="hidden md:flex px-4 py-2 bg-amber-600 text-white text-sm font-medium rounded hover:bg-amber-700 transition-colors shadow-sm" href="/docs">
+             <Link className="hidden md:flex px-4 py-2 bg-brand-600 text-white text-sm font-medium rounded hover:bg-brand-700 transition-colors shadow-sm" href="/docs">
                Get Started
              </Link>
           </div>
@@ -120,7 +109,7 @@ export default function HomePage() {
               <ul className="space-y-6">
                 {featureCards.map((feature) => (
                   <li className="flex items-start gap-4" key={feature.title}>
-                    <div className="mt-1 w-8 h-8 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                    <div className="mt-1 w-8 h-8 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
                       <feature.icon className="w-4 h-4" />
                     </div>
                     <div>
@@ -143,7 +132,7 @@ export default function HomePage() {
                     />
                  </div>
               </div>
-              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-amber-100 to-transparent opacity-50 blur-3xl rounded-full"></div>
+              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-brand-100 to-transparent opacity-50 blur-3xl rounded-full"></div>
             </div>
           </div>
         </div>
@@ -159,10 +148,10 @@ export default function HomePage() {
         <div className="docs-link-grid">
           {docsLinks.map((entry) => (
             <Link className="docs-link group block" href={entry.href} key={entry.title}>
-              <div className="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center mb-6">
+              <div className="w-10 h-10 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center mb-6">
                 <entry.icon className="w-5 h-5" />
               </div>
-              <span className="docs-link-title group-hover:text-amber-600">{entry.title}</span>
+              <span className="docs-link-title group-hover:text-brand-600">{entry.title}</span>
               <span className="docs-link-body mt-2">{entry.body}</span>
             </Link>
           ))}

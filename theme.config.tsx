@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ComponentProps } from "react";
 import { Footer, Layout, Navbar } from "nextra-theme-docs";
+import { Logo } from "@/components/Logo";
 
 const docsRepositoryBase =
   "https://github.com/open-otter/open-otter.github.io/tree/main";
@@ -35,17 +35,7 @@ const themeConfig: DocsThemeConfig = {
   navbar: (
     <Navbar
       align="right"
-      logo={
-        <span className="flex items-center gap-3 font-semibold tracking-tight">
-          <Image
-            alt="OpenOtter"
-            className="h-7 w-auto mix-blend-multiply"
-            height="28"
-            src="/brand/openotter-logo-light.png"
-            width="160"
-          />
-        </span>
-      }
+      logo={<Logo />}
       logoLink="/"
       projectLink={sourceRepository}
     >
