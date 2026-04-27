@@ -3,12 +3,12 @@
 
 :root {
   color-scheme: light;
-  --site-bg: #fafaf8;
-  --site-fg: #0f172a;
-  --site-muted: #52525b;
-  --site-border: rgba(15, 23, 42, 0.09);
+  --site-bg: #FAFAFA;
+  --site-fg: #1E293B;
+  --site-muted: #64748B;
+  --site-border: rgba(226, 232, 240, 0.6);
   --site-surface: #ffffff;
-  --site-surface-strong: #f5f5f4;
+  --site-surface-strong: #F8FAFC;
 }
 
 html {
@@ -39,21 +39,21 @@ img {
 }
 
 ::selection {
-  background: rgba(15, 23, 42, 0.14);
+  background: rgba(79, 70, 229, 0.14);
 }
 
 .site-shell {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top, rgba(148, 163, 184, 0.12), transparent 34%),
+    radial-gradient(circle at top, rgba(226, 232, 240, 0.4), transparent 34%),
     var(--site-bg);
 }
 
 .eyebrow {
-  color: #64748b;
+  color: #6366F1; /* Indigo 500 */
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
@@ -67,7 +67,7 @@ img {
   align-items: center;
   border: 1px solid var(--site-border);
   border-radius: 0.5rem;
-  color: #0f172a;
+  color: #334155;
   display: inline-flex;
   font-size: 0.95rem;
   font-weight: 500;
@@ -78,22 +78,26 @@ img {
     border-color 160ms ease,
     background-color 160ms ease,
     color 160ms ease;
+  background: var(--site-surface);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
 .cta-button:hover {
-  background: rgba(15, 23, 42, 0.04);
-  border-color: rgba(15, 23, 42, 0.16);
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+  color: #0F172A;
 }
 
 .cta-button-primary {
-  background: #0f172a;
-  border-color: #0f172a;
+  background: #4F46E5;
+  border-color: #4F46E5;
   color: #ffffff;
+  box-shadow: 0 1px 3px rgba(79, 70, 229, 0.2);
 }
 
 .cta-button-primary:hover {
-  background: #111827;
-  border-color: #111827;
+  background: #4338CA;
+  border-color: #4338CA;
   color: #ffffff;
 }
 
@@ -103,19 +107,20 @@ img {
 
 .video-frame {
   aspect-ratio: 16 / 10;
-  background: #ffffff;
+  background: var(--site-surface);
   border: 1px solid var(--site-border);
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   overflow: hidden;
   position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .frame-chip {
   align-self: flex-start;
   background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.8);
   border-radius: 999px;
-  color: #0f172a;
+  color: #1E293B;
   display: inline-flex;
   font-size: 0.75rem;
   font-weight: 500;
@@ -132,76 +137,91 @@ img {
 
 .surface-grid {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .surface-card {
   background: var(--site-surface);
   border: 1px solid var(--site-border);
-  border-radius: 0.5rem;
-  min-height: 12rem;
-  padding: 1.25rem;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 200ms ease;
+}
+
+.surface-card:hover {
+  border-color: #C7D2FE;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
 .architecture-frame {
-  background: #ffffff;
+  background: var(--site-surface強い);
   border: 1px solid var(--site-border);
-  border-radius: 0.5rem;
-  padding: 1rem;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .docs-link-grid {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .docs-link {
-  background: #ffffff;
+  background: var(--site-surface);
   border: 1px solid var(--site-border);
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  min-height: 9.5rem;
-  padding: 1.25rem;
-  transition:
-    background-color 160ms ease,
-    border-color 160ms ease,
-    transform 160ms ease;
+  padding: 2rem;
+  transition: all 200ms ease;
 }
 
 .docs-link:hover {
-  background: var(--site-surface-strong);
-  border-color: rgba(15, 23, 42, 0.14);
-  transform: translateY(-1px);
+  border-color: #C7D2FE;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
 .docs-link-title {
-  color: #0f172a;
-  font-size: 1rem;
-  font-weight: 600;
+  color: #0F172A;
+  font-size: 1.125rem;
+  font-weight: 500;
+  transition: color 200ms ease;
+}
+
+.docs-link:hover .docs-link-title {
+  color: #4F46E5;
 }
 
 .docs-link-body {
   color: var(--site-muted);
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Fix Nextra Mobile Menu Button hit area and layout */
+.nextra-nav-container button[aria-label="Menu"] {
+  padding: 0.75rem !important;
+  margin-right: -0.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.nextra-nav-container button[aria-label="Menu"] svg {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
 }
 
 @media (min-width: 768px) {
-  .surface-grid,
-  .docs-link-grid {
+  .surface-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1024px) {
-  .surface-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .docs-link-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

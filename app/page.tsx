@@ -1,22 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, Cpu, Play, Smartphone, Terminal, Wrench } from "lucide-react";
 
 const featureCards = [
   {
     title: "Mobile perception",
-    body: "Run on-vehicle sensing and scene understanding from a phone-class compute stack with real sensor data.",
+    body: "Run on-vehicle sensing and scene understanding from a phone-class compute stack.",
+    icon: Smartphone,
   },
   {
     title: "Embedded control",
-    body: "Bridge autonomy outputs into RC steering, throttle, telemetry, and hardware-safe low-level loops.",
-  },
-  {
-    title: "Open hardware path",
-    body: "Keep the vehicle stack inspectable, replaceable, and practical for field iteration instead of closed demos.",
-  },
-  {
-    title: "Agent runtime",
-    body: "Connect perception, control, and operator tooling into a platform that can host physical AI workflows.",
+    body: "Bridge autonomy outputs into RC steering, throttle, telemetry, and low-level loops.",
+    icon: Cpu,
   },
 ];
 
@@ -25,169 +20,144 @@ const docsLinks = [
     href: "/docs/hardware-build",
     title: "Hardware build",
     body: "Chassis, power, wiring, and controller integration.",
+    icon: Wrench,
   },
   {
     href: "/docs/software-build",
     title: "Software build",
     body: "iOS tooling, firmware build chains, and local setup.",
+    icon: Terminal,
   },
   {
     href: "/docs/running-instructions",
     title: "Running guides",
     body: "Bring-up, connection flow, and operating sequence.",
+    icon: Play,
   },
 ];
 
 export default function HomePage() {
   return (
     <main className="site-shell">
-      <section className="border-b border-black/8">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-5">
-          <Link aria-label="OpenOtter home" href="/">
-            <Image
-              alt="OpenOtter"
-              className="h-8 w-auto"
-              height="32"
-              src="/brand/openotter-logo-light.png"
-              width="182"
-            />
-          </Link>
-          <nav className="flex items-center gap-4 text-sm text-neutral-500">
-            <Link className="transition hover:text-neutral-900" href="/docs">
-              Docs
+      <section className="border-b border-slate-200/60 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 h-16">
+          <div className="flex items-center gap-8">
+            <Link aria-label="OpenOtter home" href="/" className="flex items-center">
+              <Image
+                alt="OpenOtter"
+                className="h-6 w-auto mix-blend-multiply"
+                height="24"
+                src="/brand/openotter-logo-light.png"
+                width="136"
+                priority
+              />
             </Link>
-            <a
-              className="transition hover:text-neutral-900"
-              href="https://github.com/JuneJulyAugust/openotter"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Source
-            </a>
-          </nav>
-        </div>
-      </section>
-
-      <section className="border-b border-black/8">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(440px,0.95fr)] lg:py-24">
-          <div className="flex flex-col justify-center gap-8">
-            <div className="space-y-5">
-              <p className="eyebrow">Open-source autonomy for physical RC systems</p>
-              <h1 className="text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl lg:text-6xl">
-                OpenOtter: The Open-Source Autonomous RC Platform
-              </h1>
-              <p className="max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg">
-                OpenOtter connects phone-class perception, embedded control, and real RC hardware
-                into a field-testable autonomy stack. The site is the front door for the platform
-                and the docs path into the build.
-              </p>
-            </div>
-
-            <div className="cta-row">
-              <Link className="cta-button cta-button-primary" href="/docs">
-                Read the Docs
+            <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-500">
+              <Link className="text-slate-800" href="/docs">
+                Docs
               </Link>
               <a
-                className="cta-button"
+                className="transition-colors hover:text-slate-800"
                 href="https://github.com/JuneJulyAugust/openotter"
                 rel="noreferrer"
                 target="_blank"
               >
-                View Source
+                GitHub
               </a>
-            </div>
+            </nav>
           </div>
+          <div className="flex items-center gap-4">
+             <Link className="hidden md:flex px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded hover:bg-indigo-700 transition-colors shadow-sm" href="/docs">
+               Get Started
+             </Link>
+          </div>
+        </div>
+      </section>
 
-          <div className="hero-panel">
-            <div className="video-frame">
-              <Image
-                alt="OpenOtter perception and autonomy preview"
-                className="absolute inset-0 h-full w-full object-cover"
-                fill
-                src="/media/hero/openotter-hero-poster.jpg"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(255,255,255,0.92),rgba(255,255,255,0.24))]" />
-              <div className="relative flex h-full flex-col justify-between p-5">
-                <span className="frame-chip">Demo capture</span>
-                <div className="space-y-2">
-                  <p className="text-sm font-medium text-neutral-950">
-                    LiDAR + RGB perception overlay
-                  </p>
-                  <p className="max-w-sm text-sm leading-6 text-neutral-700">
-                    Placeholder media surface using the current poster asset until a production
-                    demo reel is added.
-                  </p>
-                </div>
+      <section className="max-w-7xl mx-auto px-6 py-24 md:py-32">
+        <div className="max-w-3xl">
+          <h1 className="text-5xl md:text-6xl font-semibold tracking-tight leading-[1.1] mb-6 text-slate-900">
+            Open-source autonomy for physical RC systems.
+          </h1>
+          <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
+            Connect phone-class perception, embedded control, and real RC hardware into a field-testable autonomy stack. Built for iteration on real hardware.
+          </p>
+          <div className="cta-row">
+            <Link className="cta-button cta-button-primary gap-2" href="/docs">
+              Read the Docs
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <a
+              className="cta-button"
+              href="https://github.com/JuneJulyAugust/openotter"
+              rel="noreferrer"
+              target="_blank"
+            >
+              View Source
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200/60 bg-white overflow-hidden">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="eyebrow mb-4">Architecture</p>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-900 mb-6">
+                From operator tooling to embedded actuation.
+              </h2>
+              <p className="text-lg leading-relaxed text-slate-600 mb-8">
+                OpenOtter spans the mobile app, autonomy runtime, and low-level hardware bridge. The
+                result is a single platform for bringing sensors, control surfaces, and field
+                operation into one loop.
+              </p>
+              <ul className="space-y-6">
+                {featureCards.map((feature) => (
+                  <li className="flex items-start gap-4" key={feature.title}>
+                    <div className="mt-1 w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+                      <feature.icon className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-slate-900">{feature.title}</h4>
+                      <p className="text-slate-500 text-sm mt-1">{feature.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="relative">
+              <div className="architecture-frame aspect-video flex flex-col justify-center items-center overflow-hidden p-0 relative border-slate-200/60">
+                 <Image
+                    alt="OpenOtter system architecture"
+                    className="object-cover w-full h-full"
+                    fill
+                    src="/media/architecture/openotter-architecture.png"
+                  />
               </div>
+              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-indigo-100 to-transparent opacity-50 blur-3xl rounded-full"></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="border-b border-black/8">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="section-heading">
-            <p className="eyebrow">Platform focus</p>
-            <h2 className="text-2xl font-semibold tracking-tight text-neutral-950 sm:text-3xl">
-              The stack is built for iteration on real hardware.
-            </h2>
-          </div>
-          <div className="surface-grid mt-10">
-            {featureCards.map((feature) => (
-              <article className="surface-card" key={feature.title}>
-                <h3 className="text-lg font-semibold text-neutral-950">{feature.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-neutral-600">{feature.body}</p>
-              </article>
-            ))}
-          </div>
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <div className="section-heading mb-12">
+          <p className="eyebrow mb-2">Start here</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-900">
+            Enter through the build guides.
+          </h2>
         </div>
-      </section>
-
-      <section className="border-b border-black/8">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:items-center">
-          <div className="space-y-5">
-            <p className="eyebrow">Architecture</p>
-            <h2 className="text-2xl font-semibold tracking-tight text-neutral-950 sm:text-3xl">
-              From operator tooling to embedded actuation.
-            </h2>
-            <p className="max-w-xl text-sm leading-7 text-neutral-600 sm:text-base">
-              OpenOtter spans the mobile app, autonomy runtime, and low-level hardware bridge. The
-              result is a single platform for bringing sensors, control surfaces, and field
-              operation into one loop.
-            </p>
-          </div>
-          <div className="architecture-frame">
-            <Image
-              alt="OpenOtter system architecture"
-              className="w-full rounded-lg border border-black/8"
-              height={720}
-              src="/media/architecture/openotter-architecture.png"
-              width={1280}
-            />
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="section-heading">
-            <p className="eyebrow">Start here</p>
-            <h2 className="text-2xl font-semibold tracking-tight text-neutral-950 sm:text-3xl">
-              Enter through the build guides.
-            </h2>
-            <p className="max-w-2xl text-sm leading-7 text-neutral-600 sm:text-base">
-              The docs are organized around the real hardware and software bring-up path rather
-              than a marketing funnel.
-            </p>
-          </div>
-          <div className="docs-link-grid mt-10">
-            {docsLinks.map((entry) => (
-              <Link className="docs-link" href={entry.href} key={entry.title}>
-                <span className="docs-link-title">{entry.title}</span>
-                <span className="docs-link-body">{entry.body}</span>
-              </Link>
-            ))}
-          </div>
+        <div className="docs-link-grid">
+          {docsLinks.map((entry) => (
+            <Link className="docs-link group block" href={entry.href} key={entry.title}>
+              <div className="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6">
+                <entry.icon className="w-5 h-5" />
+              </div>
+              <span className="docs-link-title group-hover:text-indigo-600">{entry.title}</span>
+              <span className="docs-link-body mt-2">{entry.body}</span>
+            </Link>
+          ))}
         </div>
       </section>
     </main>
